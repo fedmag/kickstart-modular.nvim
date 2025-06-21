@@ -2,6 +2,7 @@ return {
   { 'catppuccin/nvim', lazy = false, name = 'catppuccin', opts = {
     flavour = 'frappe',
   } },
+  { 'rose-pine/neovim', name = 'rose-pine' },
   {
     'rebelot/kanagawa.nvim',
     priority = 1000,

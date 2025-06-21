@@ -1,10 +1,9 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
-
+-- tst
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
-
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -65,7 +64,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
-
 local opts = { noremap = true, silent = true }
 vim.keymap.set('v', 'p', 'P', opts)
 vim.keymap.set('n', 'U', '<C-r>', opts)
@@ -74,5 +72,35 @@ vim.keymap.set('n', '<S-l>', ':bnext<cr>', opts)
 vim.keymap.set('n', 'gl', '$', opts)
 vim.keymap.set('n', 'gh', '^', opts)
 vim.keymap.set('n', 'Y', 'y$', opts)
+--
+-- BUFFERS
+-- delete current
+vim.api.nvim_set_keymap('n', '<leader>bd', ':confirm bd<CR>', { noremap = true, silent = true })
+-- delete all others
+vim.api.nvim_set_keymap('n', '<leader>bo', ':%bd|e#<CR>', { noremap = true, silent = true })
+--
+-- WINDOWS
+-- Split window horizontally
+vim.api.nvim_set_keymap('n', '<leader>sh', ':split<CR>', { noremap = true, silent = true })
 
+-- Split window vertically
+vim.api.nvim_set_keymap('n', '<leader>sv', ':vsplit<CR>', { noremap = true, silent = true })
+
+-- Close current window
+vim.api.nvim_set_keymap('n', '<leader>cw', ':close<CR>', { noremap = true, silent = true })
+
+-- Navigate between windows
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+
+-- Resize windows
+vim.api.nvim_set_keymap('n', '<C-Up>', '<C-w>+', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Down>', '<C-w>-', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Left>', '<C-w><', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>>', { noremap = true, silent = true })
+
+-- Equalize window sizes
+vim.api.nvim_set_keymap('n', '<leader>we', '<C-w>=', { noremap = true, silent = true })
 -- vim: ts=2 sts=2 sw=2 et

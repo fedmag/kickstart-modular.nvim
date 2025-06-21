@@ -22,7 +22,19 @@ return {
     --
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjectsopts = function(_, opts)
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        rainbow = {
+          enable = true,
+          -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+          extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+          max_file_lines = nil, -- Do not enable for files with more than n lines, int
+          -- colors = {}, -- table of hex strings
+          -- termcolors = {} -- table of colour name strings
+        },
+      }
+    end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
