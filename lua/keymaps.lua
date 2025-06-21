@@ -65,6 +65,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 local opts = { noremap = true, silent = true }
+-- general
 vim.keymap.set('v', 'p', 'P', opts)
 vim.keymap.set('n', 'U', '<C-r>', opts)
 vim.keymap.set('n', '<S-h>', ':bprevious<cr>', opts)
@@ -72,6 +73,9 @@ vim.keymap.set('n', '<S-l>', ':bnext<cr>', opts)
 vim.keymap.set('n', 'gl', '$', opts)
 vim.keymap.set('n', 'gh', '^', opts)
 vim.keymap.set('n', 'Y', 'y$', opts)
+-- Map Ctrl+s to save the current buffer
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true, silent = true })
 --
 -- BUFFERS
 -- delete current
