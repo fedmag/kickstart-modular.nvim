@@ -18,6 +18,9 @@ return {
       require('mini.surround').setup()
       require('mini.tabline').setup()
 
+      require('mini.files').setup {
+        -- vim.keymap.set('n', '\\', MiniFiles.open()),
+      }
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
       --  and try some other statusline plugin
